@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
     <div className="min-h-screen bg-white">
       {/* Cover Image */}
       <div className="relative h-72 rounded-b-2xl overflow-hidden">
-        <div className="absolute inset-0 ">
+        <div className="absolute inset-0">
           <Image
             src={coverImage}
             alt="Cover"
@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
             objectFit="cover"
             priority
           />
-          <label className="absolute z-10 bottom-4 right-4  backdrop-blur-sm rounded-md px-4 py-1 text-white text-sm cursor-pointer border border-white">
+          <label className="absolute z-10 bottom-4 right-4 backdrop-blur-sm rounded-md px-4 py-1 text-white text-sm cursor-pointer border border-white">
             ✏️ Edit cover
             <input
               type="file"
@@ -45,9 +45,9 @@ export default function RootLayout({ children }) {
         <div className="absolute inset-0 bg-black opacity-40"></div>
       </div>
 
-      <div className="flex max-w-7xl mx-auto mt-4">
+      <div className="flex flex-col md:flex-row max-w-7xl mx-auto mt-4 p-4 md:p-12 gap-4">
         {/* Sidebar */}
-        <aside className="w-80 h-min-[] border rounded-2xl p-6">
+        <aside className="w-full md:h-[500px] md:w-80 border rounded-2xl p-6 mb-4 md:mb-0">
           <div className="flex flex-col items-center">
             <div className="relative w-24 h-24 rounded-full overflow-hidden mb-4">
               <Image
@@ -112,11 +112,10 @@ export default function RootLayout({ children }) {
               <span>↩️</span> <span>Logout</span>
             </button>
           </nav>
-          ;
         </aside>
 
         {/* Main Content */}
-        {children}
+        <main className="flex-1">{children}</main>
       </div>
     </div>
   );
